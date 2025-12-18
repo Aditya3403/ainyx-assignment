@@ -1,0 +1,96 @@
+.service-node {
+  width: 300px;
+  background: #07090d;
+  border-radius: 14px;
+  padding: 16px;
+  color: #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  font-family: Inter, sans-serif;
+  position: relative;
+}
+
+/* Header */
+.service-node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-node-title {
+  font-weight: 600;
+}
+
+.service-node-price {
+  background: #052e16;
+  color: #22c55e;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* Metrics */
+.service-node-metrics {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Tabs */
+.service-node-tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.service-node-tab {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  background: #0f1318;
+  color: #9ca3af;
+}
+
+.service-node-tab.active {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Slider */
+.service-node-slider {
+  margin-top: 12px;
+  height: 6px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #22c55e,
+    #f97316,
+    #ef4444
+  );
+}
+
+/* Status */
+.service-node-status {
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+.service-node-status.success {
+  color: #22c55e;
+}
+
+.service-node-status.error {
+  color: #ef4444;
+}
+
+/* Provider badge */
+.service-node-provider {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  font-size: 14px;
+  color: #f59e0b;
+}

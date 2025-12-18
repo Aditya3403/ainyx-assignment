@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@tanstack/react-query": "^5.90.12",
+    "@xyflow/react": "^12.10.0",
+    "lucide-react": "^0.562.0",
+    "react-icons": "^5.5.0",
+    "zustand": "^5.0.9"
+  }
+}

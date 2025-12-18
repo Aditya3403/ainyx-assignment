@@ -1,0 +1,223 @@
+/* =======================
+   Inspector Container
+======================= */
+.service-inspector {
+  width: 300px;
+  height: 300px;
+
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.35)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+
+  backdrop-filter: blur(14px);
+  padding: 12px;
+
+  z-index: 20;
+  color: white;
+
+  box-sizing: border-box;
+}
+
+/* =======================
+   Header
+======================= */
+.service-inspector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.service-inspector-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* =======================
+   Service Status Badge
+======================= */
+.service-status-badge {
+  background: transparent !important;   /* remove shadcn bg */
+  border-width: 1px;
+  border-style: solid;
+
+  padding: 4px 10px;                     /* balanced pill padding */
+  border-radius: 999px;                  /* perfect pill */
+
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+
+  text-transform: none;
+  letter-spacing: 0.2px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: none;                      /* no glow */
+}
+
+/* =======================
+   Tabs
+======================= */
+.service-inspector-tabs-list {
+  width: 100%;
+  display: flex;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.service-inspector-tabs-list button {
+  flex: 1;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 13px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.service-inspector-tabs-list button[data-state="active"] {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* =======================
+   Sections
+======================= */
+.service-inspector-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* =======================
+   Inputs
+======================= */
+.service-inspector input,
+.service-inspector textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+
+  color: white;
+  font-size: 13px;
+}
+
+.service-inspector input {
+  height: 36px;
+  padding: 0 12px;
+}
+
+.service-inspector textarea {
+  min-height: 80px;
+  padding: 10px 12px;
+  resize: none;
+}
+
+/* =======================
+   Runtime Row
+======================= */
+.service-inspector-runtime {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* =======================
+   SLIDER (EXACT MATCH)
+======================= */
+
+.service-native-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent !important;
+  border: none !important;
+  width: 100%;
+  height: 18px;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Track */
+.service-native-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+}
+
+.service-native-slider::-moz-range-track {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+}
+
+/* Filled part (Firefox) */
+.service-native-slider::-moz-range-progress {
+  height: 4px;
+  background: #ffffff;
+  border-radius: 999px;
+}
+
+/* Thumb */
+.service-native-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 50%;
+
+  margin-top: -6px; /* centers thumb */
+  cursor: pointer;
+}
+
+.service-native-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+/* =======================
+   VALUE PILL (98 STYLE)
+======================= */
+
+.service-slider-value {
+  min-width: 48px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+}

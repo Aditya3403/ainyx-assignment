@@ -1,0 +1,22 @@
+/* Fonts must come first */
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+
+/* Tailwind layers AFTER imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global layout */
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+

@@ -1,0 +1,35 @@
+/* Left rail wrapper */
+.left-rail {
+  width: 56px; /* w-14 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inner rail container */
+.left-rail-inner {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Icon wrapper */
+.left-rail-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.left-rail-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
