@@ -18,6 +18,7 @@ const initialNodes: Node[] = [
     id: "postgres",
     type: "service",
     position: { x: 460, y: 80 },
+    dragHandle: ".drag-handle",
     data: {
       title: "Postgres",
       status: "Healthy",
@@ -30,6 +31,7 @@ const initialNodes: Node[] = [
     id: "redis",
     type: "service",
     position: { x: 120, y: 320 },
+    dragHandle: ".drag-handle",
     data: {
       title: "Redis",
       status: "Down",
@@ -42,6 +44,7 @@ const initialNodes: Node[] = [
     id: "mongodb",
     type: "service",
     position: { x: 720, y: 320 },
+    dragHandle: ".drag-handle",
     data: {
       title: "MongoDB",
       status: "Degraded",
