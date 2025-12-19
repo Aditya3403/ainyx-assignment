@@ -65,7 +65,6 @@ const ServiceNode = memo(({ data }: any) => {
             data.onChange({ slider: value as number })
           }
 
-          /* 🔥 MUST use capture phase */
           onMouseDownCapture={(e) => e.stopPropagation()}
           onPointerDownCapture={(e) => e.stopPropagation()}
           onTouchStartCapture={(e) => e.stopPropagation()}
@@ -115,8 +114,7 @@ const ServiceNode = memo(({ data }: any) => {
             },
           }}
         />
-
-
+        
         <input
           type="number"
           value={sliderPos}
@@ -135,8 +133,6 @@ const ServiceNode = memo(({ data }: any) => {
 
           className="service-node-slider-value"
         />
-
-
       </div>
       
       <div
