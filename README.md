@@ -74,7 +74,7 @@ The app will be available at **http://localhost:5173**
 
 ## **Deployment Link**
 
-**(https://ainyx-assignment-omega.vercel.app/)**
+**https://ainyx-assignment-omega.vercel.app/**
 
 ---
 
