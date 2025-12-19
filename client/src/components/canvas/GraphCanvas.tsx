@@ -61,6 +61,10 @@ export default function GraphCanvas() {
   const selectedAppId = useAppStore((s) => s.selectedAppId);
   const selectedNodeId = useAppStore((s) => s.selectedNodeId);
   const setSelectedNodeId = useAppStore((s) => s.setSelectedNodeId);
+  const setMobilePanelOpen = useAppStore((s) => s.setMobilePanelOpen);
+  const setTopbarDropdownOpen = useAppStore(
+  (s) => s.setTopbarDropdownOpen
+);
 
   const [nodes, setNodes] = useState<Node[]>(initialNodes);
   const [edges, setEdges] = useState<Edge[]>(initialEdges);
@@ -147,8 +151,15 @@ export default function GraphCanvas() {
         nodeTypes={nodeTypes}
         fitView
         onNodesChange={onNodesChange}
-        onNodeClick={(_, node) => setSelectedNodeId(node.id)}
-        onPaneClick={() => setSelectedNodeId(null)}
+        onNodeClick={(_, node) => {
+          setSelectedNodeId(node.id);
+          setMobilePanelOpen(true);
+        }}
+        onPaneClick={() => {
+          setSelectedNodeId(null);
+          setMobilePanelOpen(false);
+          setTopbarDropdownOpen(false);
+        }}
       >
         <Controls />
       </ReactFlow>

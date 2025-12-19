@@ -12,6 +12,8 @@ import Slider from "@mui/material/Slider";
 import TextField from "@mui/material/TextField";
 
 export default function ServiceNodeInspector() {
+  const isMobilePanelOpen = useAppStore((s) => s.isMobilePanelOpen);
+const setMobilePanelOpen = useAppStore((s) => s.setMobilePanelOpen);
   const selectedNode = useAppStore((s) => s.selectedNode);
   const updateNode = useAppStore((s) => s.updateSelectedNode);
   const activeTab = useAppStore((s) => s.activeInspectorTab);
@@ -41,20 +43,30 @@ export default function ServiceNodeInspector() {
       : "#f87171";
 
   return (
-    <aside className="service-inspector">
+    <aside className={`service-inspector ${
+      isMobilePanelOpen ? "open" : ""
+    }`}>
       <div className="service-inspector-header">
-        <h3 className="service-inspector-title">{title}</h3>
-        <Badge
-          variant="outline"
-          className="service-status-badge"
-          style={{
-            color: statusColor,
-            borderColor: statusColor,
-          }}
-        >
-          {status}
-        </Badge>
+        <div className="service-header-left">
+          <h3 className="service-inspector-title">{title}</h3>
+          <Badge
+            variant="outline"
+            className="service-status-badge"
+            style={{
+              color: statusColor,
+              borderColor: statusColor,
+            }}
+          >
+            {status}
+          </Badge>
+        </div>
 
+        <button
+          className="mobile-close"
+          onClick={() => setMobilePanelOpen(false)}
+        >
+          ✕
+        </button>
       </div>
 
       <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as any)}>

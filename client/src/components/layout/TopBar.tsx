@@ -14,7 +14,7 @@ import {
   Sun,
   User,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchApps } from "../../api/mockApi";
 import { useAppStore } from "../../store/useAppStore";
@@ -24,11 +24,29 @@ import { LuRocket } from "react-icons/lu";
 import { PiNotepad } from "react-icons/pi";
 
 export default function TopBar() {
-  const [ishide, setIsHide] = useState(true);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const isDropdownOpen = useAppStore((s) => s.isTopbarDropdownOpen);
+  const setDropdownOpen = useAppStore((s) => s.setTopbarDropdownOpen);
   const [isDark, setIsDark] = useState(true);
   const selectedAppId = useAppStore((s) => s.selectedAppId);
   const setSelectedAppId = useAppStore((s) => s.setSelectedAppId);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+  function handleClickOutside(event: MouseEvent) {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setDropdownOpen(false);
+    }
+  }
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, [setDropdownOpen]);
 
   const { data: apps} = useQuery({
     queryKey: ["apps"],
@@ -63,7 +81,7 @@ export default function TopBar() {
 
   return (
     <header className="topbar">
-      <div className="relative">
+      <div className="relative" ref={dropdownRef}>
         <div className="topbar-app">
           <div className="topbar-app-left">
             <div className="topbar-app-icon" />
@@ -84,24 +102,16 @@ export default function TopBar() {
 
 
           <div className="topbar-app-right">
-            {ishide ? (
-              <ChevronDown
-                size={18}
-                className="text-white/50 cursor-pointer"
-                onClick={() => setIsHide(false)}
-              />
+            {isDropdownOpen ? (
+              <ChevronUp size={18} onClick={() => setDropdownOpen(false)} />
             ) : (
-              <ChevronUp
-                size={18}
-                className="text-white/50 cursor-pointer"
-                onClick={() => setIsHide(true)}
-              />
+              <ChevronDown size={18} onClick={() => setDropdownOpen(true)} />
             )}
             <Ellipsis size={18} className="text-white/50" />
           </div>
         </div>
 
-        <div className={`topbar-dropdown ${ishide ? "hidden" : ""}`}>
+        <div className={`topbar-dropdown ${!isDropdownOpen ? "hidden" : ""}`}>
           <div className="topbar-dropdown-title">Application</div>
 
           <div className="topbar-search-row">

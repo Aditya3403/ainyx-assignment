@@ -13,6 +13,10 @@ export type AppState = {
   setActiveInspectorTab: (tab: "config" | "runtime") => void;
 
   isMobilePanelOpen: boolean;
+  setMobilePanelOpen: (open: boolean) => void;
+
+  isTopbarDropdownOpen: boolean;
+  setTopbarDropdownOpen: (open: boolean) => void;
 };
 
 export const useAppStore = create<AppState>((set) => ({
@@ -21,7 +25,11 @@ export const useAppStore = create<AppState>((set) => ({
   selectedNode: undefined,
 
   activeInspectorTab: "config",
+
+  isTopbarDropdownOpen: false,
+  setTopbarDropdownOpen: (open) => set({ isTopbarDropdownOpen: open }),
   isMobilePanelOpen: false,
+  setMobilePanelOpen: (open) => set({ isMobilePanelOpen: open }),
 
   setSelectedAppId: (id) => set({ selectedAppId: id }),
   setSelectedNodeId: (id) => set({ selectedNodeId: id }),

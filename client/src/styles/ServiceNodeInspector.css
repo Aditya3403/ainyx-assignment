@@ -6,7 +6,7 @@
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
-
+  transition: transform 0.35s ease;
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.55),
@@ -14,7 +14,7 @@
   );
 
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
+  border-radius: 6px;
 
   backdrop-filter: blur(14px);
   padding: 12px;
@@ -27,9 +27,15 @@
 
 .service-inspector-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  justify-content: space-between;
+}
+
+.service-header-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .service-inspector-title {
@@ -64,15 +70,14 @@
   display: flex;
   gap: 6px;
   background: rgba(255, 255, 255, 0.06);
-  padding: 4px;
-  border-radius: 10px;
+  border-radius: 6px;
   margin-bottom: 14px;
 }
 
 .service-inspector-tabs-list button {
   flex: 1;
   height: 32px;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 13px;
   background: transparent;
   color: rgba(255, 255, 255, 0.55);
@@ -96,7 +101,7 @@
 
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
+  border-radius: 6px;
 
   color: white;
   font-size: 13px;
@@ -190,4 +195,59 @@
   font-size: 13px;
   font-weight: 500;
   color: #ffffff;
+}
+
+.mobile-close {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .service-inspector-header {
+    padding-right: 4px;
+  }
+
+  .service-header-left {
+    gap: 14px;
+    min-width: 0; /* prevents overflow */
+  }
+
+  .service-inspector-title {
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .service-status-badge {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-close {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-inspector {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    max-width: 360px;
+    height: 100vh;
+
+    transform: translateX(100%);
+    border-radius: 16px 0 0 16px;
+  }
+
+  .service-inspector.open {
+    transform: translateX(0);
+  }
 }
