@@ -92,7 +92,6 @@ const setMobilePanelOpen = useAppStore((s) => s.setMobilePanelOpen);
 
         <TabsContent value="runtime" className="service-inspector-section">
           <div className="service-inspector-runtime">
-            {/* Slider */}
             <Slider
               value={cpu}
               min={0}
@@ -138,7 +137,6 @@ const setMobilePanelOpen = useAppStore((s) => s.setMobilePanelOpen);
               }}
             />
 
-            {/* Number Input */}
             <TextField
               type="number"
               value={cpu}

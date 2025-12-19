@@ -256,13 +256,11 @@
   cursor: pointer;
 }
 
-/* Icons */
 .theme-icon {
   z-index: 2;
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Thumb */
 .theme-thumb {
   position: absolute;
   top: 4px;

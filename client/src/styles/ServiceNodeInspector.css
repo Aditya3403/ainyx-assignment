@@ -138,7 +138,6 @@
   outline: none;
 }
 
-/* Track */
 .service-native-slider::-webkit-slider-runnable-track {
   height: 4px;
   background: rgba(255, 255, 255, 0.35);
@@ -157,7 +156,6 @@
   border-radius: 999px;
 }
 
-/* Thumb */
 .service-native-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -208,7 +206,7 @@
 
   .service-header-left {
     gap: 14px;
-    min-width: 0; /* prevents overflow */
+    min-width: 0;
   }
 
   .service-inspector-title {

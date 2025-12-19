@@ -19,7 +19,6 @@ const ServiceNode = memo(({ data }: any) => {
 
   return (
     <div className="service-node">
-      {/* Header */}
       <div className="service-node-header">
         <div className="service-node-title-wrap">
           <div className="service-node-logo-wrap">
@@ -34,7 +33,6 @@ const ServiceNode = memo(({ data }: any) => {
         </div>
       </div>
 
-      {/* Metrics */}
       <div className="service-node-metrics">
         <span>0.02</span>
         <span>0.05 GB</span>
@@ -42,7 +40,6 @@ const ServiceNode = memo(({ data }: any) => {
         <span>1</span>
       </div>
 
-      {/* Tabs */}
       <div className="service-node-tabs">
         {tabs.map(({ label, icon: Icon }) => (
           <div
@@ -86,7 +83,6 @@ const ServiceNode = memo(({ data }: any) => {
         />
       </div>
       
-      {/* Status */}
       <div
         className={`service-node-status ${
           data.status === "success" ? "success" : "error"
@@ -95,10 +91,8 @@ const ServiceNode = memo(({ data }: any) => {
         {data.status === "success" ? "● Success" : "▲ Error"}
       </div>
 
-      {/* Provider */}
       <div className="service-node-provider"><FaAws size={25}/></div>
 
-      {/* Handles */}
       <Handle type="target" position={Position.Top} />
       <Handle type="source" position={Position.Bottom} />
     </div>

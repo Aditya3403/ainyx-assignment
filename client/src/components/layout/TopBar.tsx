@@ -157,7 +157,6 @@ export default function TopBar() {
       <div style={{ flex: 1 }} />
 
      <div className="topbar-actions">
-        {/* Share */}
         <button className="topbar-action-btn">
           <Share2 size={16} />
         </button>
@@ -172,7 +171,6 @@ export default function TopBar() {
           <span className={`theme-thumb ${isDark ? "dark" : "light"}`} />
         </button>
 
-        {/* Avatar */}
         <button className="topbar-action-btn avatar">
           <User size={16} />
         </button>
