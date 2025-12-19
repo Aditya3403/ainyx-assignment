@@ -16,7 +16,7 @@ The project focuses on **clean architecture**, **predictable state management**,
 
 ---
 
-## ✅ **Engineering Requirements**
+## **Engineering Requirements**
 
 ### **TypeScript + Linting**
 
@@ -49,7 +49,7 @@ The project provides **all required scripts**:
 
 ---
 
-## 🧱 **Code Quality Expectations**
+## **Code Quality Expectations**
 
 - **Components split cleanly** by responsibility:
   - **Layout** – TopBar, LeftRail
@@ -61,7 +61,7 @@ The project provides **all required scripts**:
 
 ---
 
-## 📦 **Setup Instructions**
+## **Setup Instructions**
 
 ```bash
 npm install
@@ -72,13 +72,13 @@ The app will be available at **http://localhost:5173**
 
 ---
 
-## 🌍 **Deployment Link**
+## **Deployment Link**
 
 **[Vite framework preset](https://ainyx-assignment-omega.vercel.app/)**.
 
 ---
 
-## 🧠 **Key Decisions**
+## **Key Decisions**
 
 - **Zustand** chosen for global state to avoid prop drilling
 - **ReactFlow** used for interactive service graphs
