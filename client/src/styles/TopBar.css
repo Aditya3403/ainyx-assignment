@@ -1,31 +1,21 @@
-/* =======================
-   Top Bar Container
-======================= */
 .topbar {
   height: 56px;
   display: flex;
   align-items: center;
-  padding: 0 14px;
+  padding: 6px 14px;
   gap: 16px;
   position: relative;
   color: #fff;
 }
 
-/* =======================
-   App Selector
-======================= */
 .topbar-app {
-  width: 400px;
+  width: 350px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  padding: 8px 14px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(255, 255, 255, 0.02)
-  );
+  padding: 8px 8px;
+  background-color: black;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
 }
@@ -34,7 +24,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: black;
 }
 
 .topbar-app-icon {
@@ -68,19 +57,16 @@
   gap: 10px;
 }
 
-/* =======================
-   Dropdown
-======================= */
 .topbar-dropdown {
   position: absolute;
-  top: 50px;
+  top: 55px;
   left: 0;
-  width: 400px;
-  background: rgba(5, 8, 14, 0.96);
+  width: 350px;
+  background-color: black;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  padding: 14px;
+  border-radius: 6px;
+  padding: 12px 8px;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.75);
   z-index: 100;
 }
@@ -90,15 +76,12 @@
 }
 
 .topbar-dropdown-title {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   opacity: 0.85;
   margin-bottom: 10px;
 }
 
-/* =======================
-   Search
-======================= */
 .topbar-search-row {
   display: flex;
   gap: 8px;
@@ -110,7 +93,6 @@
   flex: 1;
 }
 
-/* Search input */
 .topbar-search-input {
   width: 90%;
   height: 20px;
@@ -151,13 +133,12 @@
 
   color: rgba(255, 255, 255, 0.45);
 
-  pointer-events: none; /* prevents blocking clicks */
+  pointer-events: none;
   transition: color 0.15s ease;
 }
 
-/* Icon reacts when input is focused */
 .topbar-search-wrapper:focus-within .topbar-search-icon {
-  color: rgba(165, 180, 252, 0.9); /* soft indigo */
+  color: rgba(165, 180, 252, 0.9);
 }
 
 .topbar-add-btn {
@@ -165,7 +146,7 @@
   height: 34px;
   background: #2563eb;
   color: #ffffff;
-  border: none;              /* ← THIS WAS MISSING */
+  border: none;           
   outline: none;
   box-shadow: none;
 
@@ -174,7 +155,7 @@
   align-items: center;
   justify-content: center;
 
-  appearance: none;          /* important for Safari */
+  appearance: none;    
   -webkit-appearance: none;
 }
 
@@ -188,9 +169,6 @@
   box-shadow: none;
 }
 
-/* =======================
-   App List Items
-======================= */
 .topbar-app-item {
   display: flex;
   align-items: center;
@@ -209,31 +187,106 @@
 .topbar-app-item-icon {
   width: 32px;
   height: 32px;
-  border-radius: 4px;
-  background: rgba(99, 102, 241, 0.85);
+  border-radius: 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  flex-shrink: 0;
 }
 
-/* =======================
-   Right Actions
-======================= */
 .topbar-actions {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 4px;
-  background: rgba(255, 255, 255, 0.05);
+
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
-.topbar-avatar {
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+.topbar-action-btn {
+  width: 32px;
+  height: 32px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+
+  background: rgba(56, 56, 56, 0.85);
+  border-radius: 6px;
+  border: none;
+
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+
+  padding: 8px;
+  transition: background 0.15s ease;
 }
+
+.topbar-action-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.topbar-action-btn.avatar {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 70px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px;
+  background: rgba(56, 56, 56, 0.85);
+  border-radius: 6px;
+  border: none;
+
+  cursor: pointer;
+}
+
+/* Icons */
+.theme-icon {
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Thumb */
+.theme-thumb {
+  position: absolute;
+  top: 4px;
+  left: 14px;
+  width: 28px;
+  height: 27px;
+
+  background: #888888;
+  border-radius: 4px;
+
+  transition: transform 0.2s ease;
+}
+
+/* Dark mode */
+.theme-thumb.dark {
+  transform: translateX(24px);
+}
+
+/* Light mode */
+.theme-thumb.light {
+  transform: translateX(-10px);
+}
+
+
+
+
+

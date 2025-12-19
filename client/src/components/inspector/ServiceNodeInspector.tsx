@@ -15,7 +15,6 @@ export default function ServiceNodeInspector() {
   const activeTab = useAppStore((s) => s.activeInspectorTab);
   const setActiveTab = useAppStore((s) => s.setActiveInspectorTab);
 
-  // ✅ ALWAYS CALL HOOKS
   useEffect(() => {
     if (!selectedNode) return;
 
@@ -28,7 +27,6 @@ export default function ServiceNodeInspector() {
     }
   }, [selectedNode?.data.cpu]);
 
-  // ✅ SAFE EARLY RETURN AFTER HOOKS
   if (!selectedNode) return null;
 
   const { title, status, cpu, description } = selectedNode.data;
@@ -45,15 +43,15 @@ export default function ServiceNodeInspector() {
       <div className="service-inspector-header">
         <h3 className="service-inspector-title">{title}</h3>
         <Badge
-  variant="outline"
-  className="service-status-badge"
-  style={{
-    color: statusColor,
-    borderColor: statusColor,
-  }}
->
-  {status}
-</Badge>
+          variant="outline"
+          className="service-status-badge"
+          style={{
+            color: statusColor,
+            borderColor: statusColor,
+          }}
+        >
+          {status}
+        </Badge>
 
       </div>
 

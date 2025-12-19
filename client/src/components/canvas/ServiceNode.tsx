@@ -1,14 +1,37 @@
 import { memo } from "react";
 import { Handle, Position } from "@xyflow/react";
 import "../../styles/ServiceNode.css";
+import { Cpu, Cylinder, HardDrive,MemoryStick, Settings } from "lucide-react";
+import { FaAws } from "react-icons/fa";
 
 const ServiceNode = memo(({ data }: any) => {
+  const tabs = [
+    { label: "CPU", icon: Cpu },
+    { label: "Memory", icon: MemoryStick },
+    { label: "Disk", icon: HardDrive },
+    { label: "Region", icon: Cylinder },
+  ];
+
+  const MIN = 0;
+  const MAX = 100;
+
+  const sliderPos = data.slider ?? 50;
+
   return (
     <div className="service-node">
       {/* Header */}
       <div className="service-node-header">
-        <div className="service-node-title">{data.title}</div>
-        <div className="service-node-price">$0.03 / HR</div>
+        <div className="service-node-title-wrap">
+          <div className="service-node-logo-wrap">
+            <img src={data.logo} className="service-node-logo" />
+          </div>
+          <span className="service-node-title">{data.title}</span>
+        </div>
+
+        <div className="service-node-price-icon">
+          <div className="service-node-price">$0.03 / HR</div>
+          <Settings size={14} className="service-node-icon" />
+        </div>
       </div>
 
       {/* Metrics */}
@@ -21,21 +44,48 @@ const ServiceNode = memo(({ data }: any) => {
 
       {/* Tabs */}
       <div className="service-node-tabs">
-        {["CPU", "Memory", "Disk", "Region"].map((tab) => (
+        {tabs.map(({ label, icon: Icon }) => (
           <div
-            key={tab}
+            key={label}
             className={`service-node-tab ${
-              tab === "CPU" ? "active" : ""
+              label === "CPU" ? "active" : ""
             }`}
           >
-            {tab}
+            <Icon size={14} className="service-node-tab-icon" />
+            <span>{label}</span>
           </div>
         ))}
       </div>
 
-      {/* Slider */}
-      <div className="service-node-slider" />
+      <div className="service-node-slider-row">
+        <input
+          type="range"
+          min={MIN}
+          max={MAX}
+          value={sliderPos}
+          onChange={(e) =>
+            data.onChange({
+              slider: Number(e.target.value),
+            })
+          }
+          className="service-node-slider-input"
+          style={{
+            backgroundSize: `${sliderPos}% 100%`,
+          }}
+        />
 
+        <input
+          type="number"
+          value={sliderPos}
+          onChange={(e) =>
+            data.onChange({
+              slider: Number(e.target.value),
+            })
+          }
+          className="service-node-slider-value"
+        />
+      </div>
+      
       {/* Status */}
       <div
         className={`service-node-status ${
@@ -46,7 +96,7 @@ const ServiceNode = memo(({ data }: any) => {
       </div>
 
       {/* Provider */}
-      <div className="service-node-provider">aws</div>
+      <div className="service-node-provider"><FaAws size={25}/></div>
 
       {/* Handles */}
       <Handle type="target" position={Position.Top} />

@@ -1,12 +1,10 @@
-/* Left rail wrapper */
 .left-rail {
-  width: 56px; /* w-14 */
+  width: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Inner rail container */
 .left-rail-inner {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(12px);
@@ -18,7 +16,6 @@
   align-items: center;
 }
 
-/* Icon wrapper */
 .left-rail-icon {
   width: 36px;
   height: 36px;
