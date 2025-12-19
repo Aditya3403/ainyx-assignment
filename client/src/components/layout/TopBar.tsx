@@ -28,6 +28,8 @@ export default function TopBar() {
   const [isDark, setIsDark] = useState(true);
   const selectedAppId = useAppStore((s) => s.selectedAppId);
   const setSelectedAppId = useAppStore((s) => s.setSelectedAppId);
+  const [search, setSearch] = useState("");
+
   const { data: apps} = useQuery({
     queryKey: ["apps"],
     queryFn: fetchApps,
@@ -54,6 +56,10 @@ export default function TopBar() {
       bg: "#EC4899",
     },
   };
+
+  const filteredApps = apps?.filter((app) =>
+  app.toLowerCase().includes(search.toLowerCase())
+);
 
   return (
     <header className="topbar">
@@ -107,6 +113,8 @@ export default function TopBar() {
               <input
                 placeholder="Search..."
                 className="topbar-search-input"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
               />
             </div>
 
@@ -116,7 +124,7 @@ export default function TopBar() {
           </div>
 
           <div>
-            {apps?.map((app) => (
+            {filteredApps?.map((app) => (
               <div
                 key={app}
                 className="topbar-app-item"
